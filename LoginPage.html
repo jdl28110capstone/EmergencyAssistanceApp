@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Emergency Assistance App</title>
+    <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.0rc2.css" type="text/css" charset="utf-8" />
+    <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/phonegap-1.2.0.js"></script>
+    <script src="jquery.mobile/jquery.mobile-1.0rc2.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/Control.js"></script>
+</head>
+
+<body onload="init()">
+
+<body>
+
+<div data-role="page" id="LoginPage">
+
+    <div data-role="header">
+        <h1>Login</h1>
+    </div>
+
+    <div data-role="content">
+        <form id="form" >
+
+            <label> Username </label>
+            <input type="text" id="username" name="username">
+
+            <label> Password </label>
+            <input type="password" id="password" name="password" >
+
+            <input type="submit" value="Login" id="submitButton">
+
+
+        </form>
+    </div>
+
+</div>
+
+
+<script>
+
+    $("#LoginPage").live("pageinit", function(e) {
+        checkPre();
+    });
+
+</script>
+
+
+</body>
+</html>
