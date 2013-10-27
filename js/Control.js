@@ -55,7 +55,7 @@ function locationFail() {
 var providerlist = providerlist.getlistofservides(Category, latitude, longitude);
 
 if ( Category == 'Hospital'){
-       addHospitals(providerlist);
+
 
 }
 
@@ -105,40 +105,6 @@ function handleLogin(){
     return false;
 }
 
-function register(){
-
-        var registerform = $("#Registerform");
-
-        $("#submitButton",this).attr("disabled","disabled");
-
-        var datosUsername = $("#username", registerform).val();
-        var datosPassword = $("#password", registerform).val();
-        var datosConfirmPassword= $("#Confirmpassword", registerform).val();
-        var datosEmail = $("#email", registerform).val();
-        var pattern = /^\d{10}$/;
-        if (pattern.test(mobile)) {
-            if ( datosPassword == datosConfirmPassword)
-            {
-                Register= "Url del servidor";
-                $post(Register, {username: datosUsername, password: datosPassword, email:datosEmail}, (function(respuesta){
-                    if (respuesta.registrar == "ok"){
-                        $.mobile.changePage("#LogingPage.html")
-                    }
-                    else {
-                        navigator.notification.alert("Your registration failed", function() {});
-                    }
-                $("#submitButton").removeAttr("disabled");
-                } ), "json" );
-            }
-            else {
-                navigator.notification.alert("Your passwords does not match with your confirm password", function() {});
-            }
-
-        }
-        alert("It is not valid mobile number.input 10 digits number!");
-        return false;
-
-}
 
 
 function deviceReady() {

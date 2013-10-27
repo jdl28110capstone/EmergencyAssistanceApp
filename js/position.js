@@ -5,7 +5,7 @@
 function Position(position, address, datetime)
 {
     var _db = window.sessionStorage;
-    var MAX_POSITIONS = 1;
+    var MAX_POSITIONS = 5;
 
     this.position = position;
     this.address = address;

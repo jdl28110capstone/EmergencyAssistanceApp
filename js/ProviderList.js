@@ -4,7 +4,14 @@
 
 
  function getlistofservides(Category, latitude, longitude){
+    var providerlist= new Position();
 
+    $post(Register, {Category: Category, Latitude: Latitude, Longitude:longitude, Area: Area},
+        (function(list){
 
-    return list
+            return providerlist;
+            }
+
+         ), "json" );
+    return false
 }

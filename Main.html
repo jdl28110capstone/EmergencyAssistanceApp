@@ -1,9 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-</head>
-<body>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=320; user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Emergency Assistance App</title>
+    <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.0rc2.css" type="text/css" charset="utf-8" />
+    <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/phonegap-1.2.0.js"></script>
+    <script src="jquery.mobile/jquery.mobile-1.0rc2.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/Control.js"></script>
 
+
+</head>
+
+<body style="background-color:black;">
+<h1 style="color:white">Emergency<br>Assistant App</h1>
+<br>
+<br>
+<br>
+<form action="">
+
+    <input type="button" onClick="doAction()" name="Calle 911" value="911">
+
+    <input type="button" onClick="doAction()" name="Call Police" value="police">
+
+    <input type="button" onClick="doAction()" name="Call Firefighters" value="firefighters"><br>
+
+    <input type="button" onClick="doAction()" name="Call Ambulance" value="ambulance">
+
+    <input type="button" onClick="doAction()" name="Other Services" value="other">
+
+</form>
+
+
+<script>
+    function doAction(){
+
+        if(value != “other”) {
+
+            if(value != "911"){
+
+                var category = document.getElementbyId("");
+
+
+            }
+            else{
+
+            }
+        }}
+
+</script>
 </body>
+
 </html>

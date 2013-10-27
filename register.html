@@ -2,35 +2,96 @@
 <html>
 <head>
     <title>Emergency Assistance App</title>
+    <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.0rc2.css" type="text/css" charset="utf-8" />
+    <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/phonegap-1.2.0.js"></script>
+    <script src="jquery.mobile/jquery.mobile-1.0rc2.js"></script>
 </head>
-<body>
+
+<body style="background-color:black;">
 <div data-role="page" id="RegisterPage">
 
     <div data-role="header">
-        <h1>Sign up</h1>
+        <h1 style="color:white">Emergency Assistance App</h1>
     </div>
 
     <div data-role="content">
         <form id="Registerform" >
 
-            <label> Username (must be your telephoneNumber) </label>
-            <input type="text" id="username" name="username">
+            <div data-role="fieldcontain" class="ui-hide-label">
+            <label for="username"><h1 style="color:white">Username:</h1></label>
+            <input type="text" name="username" id="username" value="" placeholder="Username" />
+            </div>
 
-            <label> Your email </label>
-            <input type="text" id="email" name="email">
+            <div data-role="fieldcontain" class="ui-hide-label">
+            <label for="password"><h1 style="color:white">Password:</h1></label>
+            <input type="password" name="password" id="password" value="" placeholder="Password" />
+            </div>
 
-            <label> Password </label>
-            <input type="password" id="password" name="password" >
+            <div data-role="fieldcontain" class="ui-hide-label">
+            <label for="password"><h1 style="color:white">Confirm Password:</h1></label>
+            <input type="password" name="Confirmpassword" id="Confirmpassword" value="" placeholder="ConfirmPassword" />
+            </div>
 
-            <label> Please Confirm your Password </label>
-            <input type="password" id="Confirmpassword" name="Confirmpassword" >
+            <div data-role="fieldcontain" class="ui-hide-label">
+            <label for="email"><h1 style="color:white">Confirm Password:</h1></label>
+            <input type="text" name="email" id="email" value="" placeholder="email" />
+            </div>
 
-            <input type="submit" value="Register" onclick="register();"/>
+            <input type="submit" value="Register" id="submitButton"/>
+
+            <p>
+                Already a member?
+                <a href="LoginPage.html" id="register" data-role="button">Login</a>
+            <p/> </h1>
 
 
         </form>
     </div>
 
+
+
 </div>
+
+<script>
+    $('#RegisterForm').submit(function(){
+
+    $("#submitButton",this).attr("disabled","disabled");
+
+    var dUsername = $("#username").val();
+    var dPassword = $("#password").val();
+    var dConfirmPassword= $("#Confirmpassword").val();
+    var dEmail = $("#email").val();
+    var pattern = /^\d{10}$/;
+
+    if (pattern.test(mobile)) {
+        if ( dPassword == dConfirmPassword) {
+            Register= "Url del servidor";
+            $post(Register, {username: dUsername, password: dPassword, email:dEmail},
+                        (function(respuesta){
+                            if (respuesta.registrar == "ok"){
+                                $.mobile.changePage("#LogingPage.html")
+                            }
+
+                            else {
+                                  navigator.notification.alert("Your registration failed", function() {});
+                            }
+                            $("#submitButton").removeAttr("disabled");
+                        } ), "json"
+            );
+        }
+
+        else {
+        navigator.notification.alert("Your passwords does not match with your confirm password", function() {});
+        }
+
+    }
+
+     alert("It is not valid mobile number.input 10 digits number!");
+     return false;
+    })
+</script>
+
 </body>
+
 </html>
