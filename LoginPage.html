@@ -2,6 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=320; user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <title>Emergency Assistance App</title>
     <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.0rc2.css" type="text/css" charset="utf-8" />
     <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
@@ -12,25 +14,32 @@
 
 <body onload="init()">
 
-<body>
+<body style="background-color:black;">
 
 <div data-role="page" id="LoginPage">
 
     <div data-role="header">
-        <h1>Login</h1>
+        <h1 style="color:white">Emergency Assistance App</h1>
     </div>
 
     <div data-role="content">
         <form id="form" >
+             <div data-role="fieldcontain" class="ui-hide-label">
+             <label for="username"><h1 style="color:white">Username:</h1></label>
+             <input type="text" name="username" id="username" value="" placeholder="Username" />
+             </div>
 
-            <label> Username </label>
-            <input type="text" id="username" name="username">
+             <div data-role="fieldcontain" class="ui-hide-label">
+             <label for="password"><h1 style="color:white">Password:</h1></label>
+             <input type="password" name="password" id="password" value="" placeholder="Password" />
+             </div>
 
-            <label> Password </label>
-            <input type="password" id="password" name="password" >
+             <input type="submit" value="Login" id="submitButton">
 
-            <input type="submit" value="Login" id="submitButton">
-
+             <p>
+             <h1 style="color:white">Not a member?</h1>
+             <a href="register.html" id="register" data-role="button">Register</a>
+             <p/>
 
         </form>
     </div>
@@ -48,4 +57,5 @@
 
 
 </body>
+
 </html>
