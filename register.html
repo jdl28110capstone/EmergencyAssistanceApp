@@ -4,7 +4,6 @@
     <title>Emergency Assistance App</title>
     <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.0rc2.css" type="text/css" charset="utf-8" />
     <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/phonegap-1.2.0.js"></script>
     <script src="jquery.mobile/jquery.mobile-1.0rc2.js"></script>
 </head>
 
@@ -34,8 +33,8 @@
             </div>
 
             <div data-role="fieldcontain" class="ui-hide-label">
-            <label for="email"><h1 style="color:white">Confirm Password:</h1></label>
-            <input type="text" name="email" id="email" value="" placeholder="email" />
+            <label for="name"><h1 style="color:white">Name:</h1></label>
+            <input type="text" name="name" id="name" value="" placeholder="name" />
             </div>
 
             <input type="submit" value="Register" id="submitButton"/>
@@ -66,19 +65,26 @@
 
     if (pattern.test(mobile)) {
         if ( dPassword == dConfirmPassword) {
-            Register= "Url del servidor";
-            $post(Register, {username: dUsername, password: dPassword, email:dEmail},
-                        (function(respuesta){
-                            if (respuesta.registrar == "ok"){
-                                $.mobile.changePage("#LogingPage.html")
-                            }
+            $.ajax({
+                type: "POST",
+                url : "http://localhost:3412/Register",
+                contentType: "application/json",
+                data: {username: dUsername, password: dPassword, name:name},
+                success : function(responseServer){
+                    if(responseServer.validacion == "ok"){
 
-                            else {
-                                  navigator.notification.alert("Your registration failed", function() {});
-                            }
-                            $("#submitButton").removeAttr("disabled");
-                        } ), "json"
-            );
+                        /// si la validacion es correcta, muestra la pantalla "Main"
+                        $.mobile.changePage("#LoginPage.html");
+
+                    }
+
+                },
+                error: function(){
+                    navigator.notification.alert("Your registration failed", function() {});
+                }
+            });
+            $("#submitButton").removeAttr("disabled");
+
         }
 
         else {
@@ -89,7 +95,7 @@
 
      alert("It is not valid mobile number.input 10 digits number!");
      return false;
-    })
+     })
 </script>
 
 </body>

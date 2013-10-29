@@ -2,21 +2,26 @@
  * Created by Jdl28110 on 10/14/13.
  */
 
-function Position(position, address, datetime)
+function Position(position, datetime, country, area, state, mobile)
 {
     var _db = window.sessionStorage;
-    var MAX_POSITIONS = 5;
+    var MAX_POSITIONS = 6;
 
     this.position = position;
-    this.address = address;
     this.datetime = datetime;
+    this.country = country;
+    this.area = area;
+    this.state= state;
+    this.mobile= mobile;
 
     this.getMaxPositions = function()
     {
         return MAX_POSITIONS;
     }
 
-    this.savePosition = function(position, address)
+
+
+    this.savePosition = function(position, country, area, state, mobile)
     {
         if (!_db)
         {
@@ -32,7 +37,7 @@ function Position(position, address, datetime)
         if (positions == null)
             positions = [];
 
-        positions.unshift(new Position(position, address, new Date()));
+        positions.unshift(new Position(position, new Date(), country, area, state, mobile));
         // Only the top MAX_POSITIONS results are needed
         if (positions.length > this.MAX_POSITIONS)
             positions = positions.slice(0, this.MAX_POSITIONS);
@@ -42,7 +47,7 @@ function Position(position, address, datetime)
         return positions;
     }
 
-    this.updatePosition = function(index, position, address)
+    this.updatePosition = function(index, position, country, area, state, mobile)
     {
         if (!_db)
         {
@@ -58,7 +63,11 @@ function Position(position, address, datetime)
         if (positions != null && positions[index] != undefined)
         {
             positions[index].coords = position;
-            positions[index].address = address;
+            positions[index].country = country;
+            positions[index].area = area;
+            positions[index].state = state;
+            positions[index].mobile = mobile;
+
         }
 
         _db.setItem('positions', JSON.stringify(positions));

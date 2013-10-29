@@ -51,18 +51,25 @@ function locationSuccess(location) {
 function locationFail() {
     navigator.notification.alert('Oops, could not find you, is your GPS enable?');
 }
-
-var providerlist = providerlist.getlistofservides(Category, latitude, longitude);
+//falta esto
+var providerlist = getlistofservices(Category, latitude, longitude);
 
 if ( Category == 'Hospital'){
+    $.mobile.changePage("#Map.html");
+    $('#map-page').live(
+        'pageshow', function()
+        {
+            Map.displayMap(position.getPositions()[0], position.getPositions());
+        });
 
 
 }
 
+// THIS BITCH IS THE DEAL!!!!!!!
 else {
-       callservices (providerlist);
+       callservices(providerlist);
 }
-
+    var telephone= providerlist.getMobile()[0];
 }
 
 
@@ -85,23 +92,26 @@ function handleLogin(){
     var datosPassword = $("#password", form).val();
     console.log("click");
 
-    Validation = "url del servidor"
-
-    $.post( Validation, { username:datosUser ,password:datosPassword},
-        (function(responseServer) {
-
+    $.ajax({
+        type: "POST",
+        url : "http://localhost:3412/Coordinates",
+        contentType: "application/json",
+        data: { username:datosUser ,password:datosPassword},
+        success : function(responseServer){
             if(responseServer.validacion == "ok"){
 
                 /// si la validacion es correcta, muestra la pantalla "Main"
-                $.mobile.changePage("#Main.html")
+                $.mobile.changePage("#Main.html");
 
-            }else{
-
-                navigator.notification.alert("Your login failed", function() {});
             }
-            $("#submitButton").removeAttr("disabled");
 
-        }), "json");
+        },
+        error: function(){
+            navigator.notification.alert("Your login failed", function() {});
+        }
+    });
+    $("#submitButton").removeAttr("disabled");
+
     return false;
 }
 
