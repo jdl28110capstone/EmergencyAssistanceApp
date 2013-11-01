@@ -2,53 +2,69 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=320; user-scalable=no" />
+    <meta name="viewport" content="width=320, user-scalable=no" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <title>Emergency Assistance App</title>
-    <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.0rc2.css" type="text/css" charset="utf-8" />
-    <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/phonegap-1.2.0.js"></script>
-    <script src="jquery.mobile/jquery.mobile-1.0rc2.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <script type="text/javascript" charset="utf-8" src="js/Control.js"></script>
 
 
 </head>
 
 <body style="background-color:black;">
-<h1 style="color:white">Emergency<br>Assistant App</h1>
+
 <br>
-<br>
-<br>
+
 <form action="">
 
-    <input type="button" onClick="doAction()" name="Calle 911" value="911">
+    <input type="button" onClick="Call911()" name="Call 911" value="911"> <br>
 
-    <input type="button" onClick="doAction()" name="Call Police" value="police">
+    <input type="button" onClick="doPolice()" name="Call Police" value="police"> <br>
 
-    <input type="button" onClick="doAction()" name="Call Firefighters" value="firefighters"><br>
+    <input type="button" onClick="doFirefighter()" name="Call Firefighters" value="firefighters"><br>
 
-    <input type="button" onClick="doAction()" name="Call Ambulance" value="ambulance">
+    <input type="button" onClick="viewHospitals()" id="hospitals" value="Hospitals"> <br>
 
-    <input type="button" onClick="doAction()" name="Other Services" value="other">
+    <input type="button" onClick="doAmbulance()" name="Call Ambulance" value="ambulance"> <br>
+
+    <a href="OtherServices.html" id="main" data-role="button">Other Services</a>
 
 </form>
 
 
 <script>
-    function doAction(){
+    function doFirefighter(){
+        var category = 'Firefighter';
+        searchfor(category);
+    }
 
-        if(value != “other”) {
+    function doPolice(){
+        var category = 'Police';
+        searchfor(category);
+    }
 
-            if(value != "911"){
+    function viewHospitals(){
+        var category = 'Hospitals';
+        searchfor(category);
+    }
 
-                var category = document.getElementbyId("");
+    function doAmbulance(){
+        var category = 'Ambulance';
+        searchfor(category);
+    }
 
 
-            }
-            else{
+    function Call911(){
+        if (navigator.userAgent.indexOf("Android") != -1) {
+            document.location.href = 'tel:911';
+        } else if (navigator.userAgent.indexOf("iPhone") != -1) {
+            window.location = 'telprompt://911';
+        }
 
-            }
-        }}
+    }
 
 </script>
 </body>

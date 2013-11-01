@@ -2,7 +2,7 @@
  * Created by Jdl28110 on 10/14/13.
  */
 
-function Position(position, datetime, country, area, state, mobile)
+function Position(position, datetime, country, state, city, mobile)
 {
     var _db = window.sessionStorage;
     var MAX_POSITIONS = 6;
@@ -10,8 +10,8 @@ function Position(position, datetime, country, area, state, mobile)
     this.position = position;
     this.datetime = datetime;
     this.country = country;
-    this.area = area;
-    this.state= state;
+    this.state = state;
+    this.city= city;
     this.mobile= mobile;
 
     this.getMaxPositions = function()
@@ -21,7 +21,7 @@ function Position(position, datetime, country, area, state, mobile)
 
 
 
-    this.savePosition = function(position, country, area, state, mobile)
+    this.savePosition = function(position, country, state, city, mobile)
     {
         if (!_db)
         {
@@ -37,7 +37,7 @@ function Position(position, datetime, country, area, state, mobile)
         if (positions == null)
             positions = [];
 
-        positions.unshift(new Position(position, new Date(), country, area, state, mobile));
+        positions.unshift(new Position(position, new Date(), country, state, city, mobile));
         // Only the top MAX_POSITIONS results are needed
         if (positions.length > this.MAX_POSITIONS)
             positions = positions.slice(0, this.MAX_POSITIONS);
@@ -47,7 +47,7 @@ function Position(position, datetime, country, area, state, mobile)
         return positions;
     }
 
-    this.updatePosition = function(index, position, country, area, state, mobile)
+    this.updatePosition = function(index, position, country, state, city, mobile)
     {
         if (!_db)
         {
@@ -64,8 +64,8 @@ function Position(position, datetime, country, area, state, mobile)
         {
             positions[index].coords = position;
             positions[index].country = country;
-            positions[index].area = area;
             positions[index].state = state;
+            positions[index].city = city;
             positions[index].mobile = mobile;
 
         }

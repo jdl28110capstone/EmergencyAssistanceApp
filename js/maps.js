@@ -122,6 +122,8 @@ Map.displayMap = function(position)
     }
 
 
+    //necesita arreglarse algoooooo lo de administrative_area_level_1 debería ser el equivalente para PR
+
     /**
     * Request the address of the retrieved location
     */
@@ -140,12 +142,14 @@ Map.displayMap = function(position)
 
                   var city = "";
                   var state = "";
+                  var country = "";
                   for(var i=0, len=result.address_components.length; i<len; i++) {
                       var ac = result.address_components[i];
                       if(ac.types.indexOf("locality") >= 0) city = ac.long_name;
                       if(ac.types.indexOf("administrative_area_level_1") >= 0) state = ac.long_name;
+                      if(ac.types.indexOf("country") >= 0) country = ac.long_name;
                   }
-                  positions.updatePosition(0, positions.getPositions()[0].coords, state, state, city, null);
+                  positions.updatePosition(0, positions.getPositions()[0].coords, country, state, city, null);
               }
          }
       );

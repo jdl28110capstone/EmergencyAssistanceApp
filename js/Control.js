@@ -2,11 +2,14 @@
  * Created by Jdl28110 on 10/12/13.
  */
 
+
+//function para inicial, necesaria para phonegap
 function init() {
     document.addEventListener("deviceready", deviceReady, true);
     delete init;
 }
 
+//funcion para verificar si hay conexion de internet
 function checkRequirements()
 {
     if (navigator.network.connection.type == Connection.NONE)
@@ -23,7 +26,7 @@ function checkRequirements()
 }
 
 
-
+//Recopila toda la informacion necesaria para Hospitales o llamadas
 function searchfor(Category){
 
 
@@ -51,28 +54,18 @@ function locationSuccess(location) {
 function locationFail() {
     navigator.notification.alert('Oops, could not find you, is your GPS enable?');
 }
-//falta esto
-var providerlist = getlistofservices(Category, latitude, longitude);
 
 if ( Category == 'Hospital'){
     $.mobile.changePage("#Map.html");
-    $('#map-page').live(
-        'pageshow', function()
-        {
-            Map.displayMap(position.getPositions()[0], position.getPositions());
-        });
-
-
 }
 
-// THIS BITCH IS THE DEAL!!!!!!!
 else {
-       callservices(providerlist);
-}
-    var telephone= providerlist.getMobile()[0];
+    $.mobile.changePage("Call.html");
 }
 
+}
 
+//Verifica si el usuario ya hecho login
 function checkPre() {
     var form = $("#loginForm");
     if(window.localStorage["username"] != undefined && window.localStorage["password"] != undefined) {
@@ -82,8 +75,10 @@ function checkPre() {
     }
 }
 
+//  Para verificar Login
 function handleLogin(){
     var form = $("#form");
+
     //disable the button so we can't resubmit while we wait
     $("#submitButton",this).attr("disabled","disabled");
 
@@ -121,5 +116,29 @@ function deviceReady() {
 
     $("#form").on("submit",handleLogin);
 
+}
+
+// si el usuario se encuentra en la pagina de Map se activa este evento
+$('#map-page').live(
+    'pageshow', function()
+    {
+        var position = new Position();
+        Map.displayMap(position.getPositions()[0], position.getPositions());
+    });
+
+//realiza la llamada de servidor
+ function CallNumber(){
+    var numbers = new Position();
+     var telephone =  numbers.mobile[0];
+    if (navigator.userAgent.indexOf("Android") != -1) {
+        document.location.href = 'tel:' + telephone;
+    } else if (navigator.userAgent.indexOf("iPhone") != -1) {
+        window.location = 'telprompt://' + telephone;
+    }
+}
+
+//funcion para realizar la llamada al otro servidor en la lista
+function Next(){
+    var numbers = new Position();
 }
 

@@ -6,15 +6,15 @@
 
  function getlistofservices(Category, latitude, longitude){
     var positions = new Position();
-    var Area= positions[0].area;
     var State= positions[0].state;
+    var City= positions[0].city;
     var Country= positions[0].Country;
 
     $.ajax({
         type: "POST",
         url : "http://localhost:3412/Register",
         contentType: "application/json",
-        data: {Category: Category, Latitude: latitude, Longitude:longitude, Area: Area, State:State, Country:Country },
+        data: {Category: Category, Latitude: latitude, Longitude:longitude, State: State, City:City, Country:Country},
         success : function(list){
             for(var i = 0; i < 5; i++){
 
@@ -23,7 +23,7 @@
                         list.latitude[i],
                         list.longitude[i],
                         null
-                    ), Country ,Area, State,list.mobile[i])
+                    ), Country ,State ,City ,list.mobile[i])
             }
             return positions;
 
