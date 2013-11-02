@@ -35,28 +35,36 @@ function searchfor(Category){
         maximumAge: 10 * 1000, // 10 seconds
         enableHighAccuracy: true
     };
-    var position = new Position();
+    var positions = new Position();
 
 navigator.geolocation.getCurrentPosition(locationSuccess, locationFail, geolocationOptions);
 function locationSuccess(location) {
-    latitude = locationn.coords.latitude;
+    latitude = location.coords.latitude;
     longitude = location.coords.longitude;
 
-    position.savePosition(
+    positions.savePosition(
         new Coords(
             location.coords.latitude,
             location.coords.longitude,
             location.coords.accuracy
         )
     );
+
+
+    getlistofservices(Category, latitude, longitude, positions);
+
+
 }
 
 function locationFail() {
     navigator.notification.alert('Oops, could not find you, is your GPS enable?');
 }
 
+
+
 if ( Category == 'Hospital'){
-    $.mobile.changePage("#Map.html");
+
+    $.mobile.changePage("#Map.html", {allowSamePageTransition:true,reloadPage:false,changeHash:true,transition:"slide"});
 }
 
 else {
@@ -79,32 +87,37 @@ function checkPre() {
 function handleLogin(){
     var form = $("#form");
 
+
     //disable the button so we can't resubmit while we wait
     $("#submitButton",this).attr("disabled","disabled");
 
     // valores que inserto el user
     var datosUser = $("#username", form).val();
     var datosPassword = $("#password", form).val();
-    console.log("click");
+    //console.log("click");
 
-    $.ajax({
-        type: "POST",
-        url : "http://localhost:3412/Coordinates",
-        contentType: "application/json",
-        data: { username:datosUser ,password:datosPassword},
-        success : function(responseServer){
-            if(responseServer.validacion == "ok"){
+   // $.ajax({
+   //     type: "POST",
+   //     url : "http://localhost:3412/Coordinates",
+   //     contentType: "application/json",
+   //     data: { username:datosUser ,password:datosPassword},
+   //     success : function(responseServer){
+   //         if(responseServer.validacion == "ok"){
 
                 /// si la validacion es correcta, muestra la pantalla "Main"
-                $.mobile.changePage("#Main.html");
+                // window.localStorage["username"] = datosUser;
+                // window.localStorage["password"] = datosPassword;
 
-            }
+    $.mobile.changePage("#Main.html",{allowSamePageTransition:true,reloadPage:false,changeHash:true,transition:"slide"});
 
-        },
-        error: function(){
-            navigator.notification.alert("Your login failed", function() {});
-        }
-    });
+
+   //         }
+
+   //     },
+   //     error: function(){
+   //         navigator.notification.alert("Your login failed", function() {});
+   //     }
+   // });
     $("#submitButton").removeAttr("disabled");
 
     return false;
@@ -119,11 +132,12 @@ function deviceReady() {
 }
 
 // si el usuario se encuentra en la pagina de Map se activa este evento
-$('#map-page').live(
+$('#map-page').on(
     'pageshow', function()
     {
+
         var position = new Position();
-        Map.displayMap(position.getPositions()[0], position.getPositions());
+        Map.displayMap(position.getPositions());
     });
 
 //realiza la llamada de servidor

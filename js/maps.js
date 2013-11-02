@@ -18,10 +18,12 @@ Map.displayMap = function(position)
 
     for(var i = 0; i < 5; i++){
         if( i==4){
-            userLatLng = new google.maps.LatLng(position.coords.latitude[i], userPosition.coords.longitude[i]);
+            userLatLng = new google.maps.LatLng(position.position.latitude[i], position.position.longitude[i]);
         }
         else{
-            HospitalLatLng.unshift(new google.maps.LatLng(carPosition.position.latitude[i], carPosition.position.longitude[i]));
+            if (position.coords.latitude[i] != null){
+                HospitalLatLng.unshift(new google.maps.LatLng(position.position.latitude[i], position.position.longitude[i]));
+            }
         }
     }
 
@@ -41,10 +43,9 @@ Map.displayMap = function(position)
         Icon: 'images/user-marker.png',
         title: 'Your position'
     });
-
-    var circle = new google.maps.Circle({
+     var circle  = new google.maps.Circle({
         center: userLatLng,
-        radius: position.coords.accuracy[4],
+        radius: position.position.accuracy[4],
         map: map,
         fillColor: '#70E7FF',
         fillOpacity: 0.2,
@@ -55,13 +56,14 @@ Map.displayMap = function(position)
     map.fitBounds(circle.getBounds());
 
     for ( var e= 0; e <4; e++){
-        marker = new google.maps.Marker({
+        if (HospitalLatLng[e] != null){
+         marker = new google.maps.Marker({
             position: HospitalLatLng[e],
             map: map,
-            icon: 'images/Hospital-marker.png',  //buscar imagen parecida a Hospital o algo similar
+            icon: 'images/hospital-building.png',  //buscar imagen parecida a Hospital o algo similar
             title: 'Hospital position'
-        });
-        circle = new google.maps.Circle({
+         });
+         circle = new google.maps.Circle({
             center: HospitalLatLng[e],
             radius: position.position.accuracy[e],
             map: map,
@@ -69,7 +71,9 @@ Map.displayMap = function(position)
             fillOpacity: 0.2,
             strokeColor: '#0000FF',
             strokeOpacity: 1.0
-        });
+         });
+         map.fitBounds(circle.getBounds());
+         }
     }
 
         // Display route to the car
@@ -127,18 +131,18 @@ Map.displayMap = function(position)
     /**
     * Request the address of the retrieved location
     */
-    Map.requestLocation = function(position)
+    Map.requestLocation = function(positions)
     {
       new google.maps.Geocoder().geocode(
          {
-             'location': new google.maps.LatLng(position.coords.latitude, position.coords.longitude)
+             'location': new google.maps.LatLng(positions.position.latitude, positions.position.longitude)
          },
          function(results, status)
          {
               if (status == google.maps.GeocoderStatus.OK)
               {
-                  var positions = new Position();
                   var result = results[0];
+                  var positions1 = new Position();
 
                   var city = "";
                   var state = "";
@@ -149,7 +153,7 @@ Map.displayMap = function(position)
                       if(ac.types.indexOf("administrative_area_level_1") >= 0) state = ac.long_name;
                       if(ac.types.indexOf("country") >= 0) country = ac.long_name;
                   }
-                  positions.updatePosition(0, positions.getPositions()[0].coords, country, state, city, null);
+                  positions1.updatePosition(0, positions, country, state, city, null);
               }
          }
       );
