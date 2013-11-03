@@ -16,8 +16,8 @@ Map.displayMap = function(position)
     var userLatLng = null;
     var HospitalLatLng = [];
 
-    for(var i = 0; i < 5; i++){
-        if( i==4){
+    for(var i = 0; i < 6; i++){
+        if( i==5){
             userLatLng = new google.maps.LatLng(position.position.latitude[i], position.position.longitude[i]);
         }
         else{
@@ -131,18 +131,18 @@ Map.displayMap = function(position)
     /**
     * Request the address of the retrieved location
     */
-    Map.requestLocation = function(positions)
+    Map.requestLocation = function(position)
     {
       new google.maps.Geocoder().geocode(
          {
-             'location': new google.maps.LatLng(positions.position.latitude, positions.position.longitude)
+             'location': new google.maps.LatLng(position[0].position.latitude, position[0].position.longitude)
          },
          function(results, status)
          {
               if (status == google.maps.GeocoderStatus.OK)
               {
                   var result = results[0];
-                  var positions1 = new Position();
+                  var positions = new Position();
 
                   var city = "";
                   var state = "";
@@ -153,8 +153,10 @@ Map.displayMap = function(position)
                       if(ac.types.indexOf("administrative_area_level_1") >= 0) state = ac.long_name;
                       if(ac.types.indexOf("country") >= 0) country = ac.long_name;
                   }
-                  positions1.updatePosition(0, positions, country, state, city, null);
+                  position= positions.savePosition(0, position[0].position, country, state, city, window.localStorage["username"]);
+
+
               }
          }
-      );
+      ); return position;
     }

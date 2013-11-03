@@ -6,6 +6,7 @@
 //function para inicial, necesaria para phonegap
 function init() {
     document.addEventListener("deviceready", deviceReady, true);
+    $.mobile.allowCrossDomainPages = true;
     delete init;
 }
 
@@ -37,28 +38,24 @@ function searchfor(Category){
     };
     var positions = new Position();
 
-navigator.geolocation.getCurrentPosition(locationSuccess, locationFail, geolocationOptions);
-function locationSuccess(location) {
-    latitude = location.coords.latitude;
-    longitude = location.coords.longitude;
+navigator.geolocation.getCurrentPosition(
+function (location) {
+    var latitude = location.coords.latitude;
+    var longitude = location.coords.longitude;
 
     positions.savePosition(
         new Coords(
             location.coords.latitude,
             location.coords.longitude,
             location.coords.accuracy
-        )
+        ), "Country", "State", "City", window.localStorage["username"]
     );
-
-
     getlistofservices(Category, latitude, longitude, positions);
-
-
-}
+},
 
 function locationFail() {
     navigator.notification.alert('Oops, could not find you, is your GPS enable?');
-}
+}, geolocationOptions);
 
 
 
@@ -94,7 +91,7 @@ function handleLogin(){
     // valores que inserto el user
     var datosUser = $("#username", form).val();
     var datosPassword = $("#password", form).val();
-    //console.log("click");
+   //console.log("click");
 
    // $.ajax({
    //     type: "POST",
@@ -107,8 +104,11 @@ function handleLogin(){
                 /// si la validacion es correcta, muestra la pantalla "Main"
                 // window.localStorage["username"] = datosUser;
                 // window.localStorage["password"] = datosPassword;
+    navigator.notification.alert(
+        'Entro'
+    );
 
-    $.mobile.changePage("#Main.html",{allowSamePageTransition:true,reloadPage:false,changeHash:true,transition:"slide"});
+    $.mobile.changePage('#Main.html',{allowSamePageTransition:true,reloadPage:false,changeHash:true,transition:"slide"});
 
 
    //         }
@@ -132,10 +132,9 @@ function deviceReady() {
 }
 
 // si el usuario se encuentra en la pagina de Map se activa este evento
-$('#map-page').on(
+$("#map-page").on(
     'pageshow', function()
     {
-
         var position = new Position();
         Map.displayMap(position.getPositions());
     });
@@ -154,5 +153,8 @@ $('#map-page').on(
 //funcion para realizar la llamada al otro servidor en la lista
 function Next(){
     var numbers = new Position();
+    numbers.deletePosition(0);
+    CallNumber();
 }
+
 

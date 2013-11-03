@@ -13,57 +13,56 @@
     <script type="text/javascript" charset="utf-8" src="js/Maps.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/Position.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/ProviderList.js"></script>
-    <script>
-        $(document).one('deviceready', initApplication);
-    </script>
+
 
 
 </head>
 
 <body style="background-color:black;">
 
-<br>
+<header>
+    <h1>Emergency Assistant App</h1>
+</header>
 
-<form action="">
+<section id="main-page">
+    <button id="call911">Call 911</button>
+    <button id="police">Call Police</button>
+    <button id="hospital">Hospitals</button>
+    <button id="ambulance">Call Ambulance</button>
+    <button id="firefighters">Call Firefighters</button>
+    <button id="other">Other Services</button>
 
-    <input type="button" onClick="Call911()" name="Call 911" value="911"> <br>
-
-    <input type="button" onClick="doPolice()" name="Call Police" value="police"> <br>
-
-    <input type="button" onClick="doFirefighter()" name="Call Firefighters" value="firefighters"><br>
-
-    <input type="button" onClick="viewHospitals()" id="hospitals" value="Hospitals"> <br>
-
-    <input type="button" onClick="doAmbulance()" name="Call Ambulance" value="ambulance"> <br>
-
-    <a href="OtherServices.html" id="main" data-role="button">Other Services</a>
-
-</form>
+</section>
 
 
 <script>
-    function doFirefighter(){
+    $("#firefighters").click(function (){
         var category = 'Firefighter';
         searchfor(category);
-    }
+    });
 
-    function doPolice(){
-        var category = 'Police';
-        searchfor(category);
-    }
-
-    function viewHospitals(){
+    $("#hospital").click(function (){
         var category = 'Hospital';
         searchfor(category);
-    }
+    });
 
-    function doAmbulance(){
+    $("#police").click(function (){
+        var category = 'Police';
+        searchfor(category);
+    });
+
+    $("#police").click(function (){
+        var category = 'Hospital';
+        searchfor(category);
+    });
+
+    $("#ambulance").click(function (){
         var category = 'Ambulance';
         searchfor(category);
-    }
+    });
 
 
-    function Call911(){
+    $("#call911").click(function (){
         if (navigator.userAgent.indexOf("Android") != -1) {
             document.location.href = 'tel:911';
         } else if (navigator.userAgent.indexOf("iPhone") != -1) {
@@ -74,7 +73,11 @@
             );
         }
 
-    }
+    });
+
+    $("#other").click(function(){
+        $.mobile.changePage("OtherServices.html");
+    });
 
 </script>
 </body>
