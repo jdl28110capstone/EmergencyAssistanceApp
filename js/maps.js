@@ -13,16 +13,17 @@
  */
 Map.displayMap = function(position)
 {
+
     var userLatLng = null;
     var HospitalLatLng = [];
 
     for(var i = 0; i < 6; i++){
-        if( i==5){
-            userLatLng = new google.maps.LatLng(position.position.latitude[i], position.position.longitude[i]);
+        if( i==1){
+            userLatLng = new google.maps.LatLng(position[i].position.latitude, position[i].position.longitude);
         }
         else{
-            if (position.coords.latitude[i] != null){
-                HospitalLatLng.unshift(new google.maps.LatLng(position.position.latitude[i], position.position.longitude[i]));
+            if (position[i].position.latitude != undefined){
+                HospitalLatLng.unshift(new google.maps.LatLng(position[i].position.latitude, position[i].position.longitude));
             }
         }
     }
@@ -45,7 +46,7 @@ Map.displayMap = function(position)
     });
      var circle  = new google.maps.Circle({
         center: userLatLng,
-        radius: position.position.accuracy[4],
+        radius: position[4].position.accuracy,
         map: map,
         fillColor: '#70E7FF',
         fillOpacity: 0.2,
@@ -65,7 +66,7 @@ Map.displayMap = function(position)
          });
          circle = new google.maps.Circle({
             center: HospitalLatLng[e],
-            radius: position.position.accuracy[e],
+            radius: position[e].position.accuracy,
             map: map,
             fillColor: '#70E7FF',
             fillOpacity: 0.2,
@@ -153,7 +154,7 @@ Map.displayMap = function(position)
                       if(ac.types.indexOf("administrative_area_level_1") >= 0) state = ac.long_name;
                       if(ac.types.indexOf("country") >= 0) country = ac.long_name;
                   }
-                  position= positions.savePosition(0, position[0].position, country, state, city, window.localStorage["username"]);
+                  position= positions.savePosition( position[0].position, country, state, city, '7873627430');
 
 
               }

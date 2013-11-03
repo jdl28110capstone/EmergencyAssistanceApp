@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=320, user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/Control.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/Position.js"></script>
 
-    <script>
 
-        function CallServiceNumber(){
-            CallService();
-        }
-
-        function NextNumber(){
-            Next();
-        }
-    </script>
 </head>
 <body style="background-color:black;">
 
-<br>
-<form action="">
-    <input type="button" id="call" onClick="Callservice()" value="telephone">
-    <input type="button" id="anotherCall" onClick="NextNumber()"value="Call Next">
+<section id="main-page">
+    <button id="CallService">Call</button>
+    <button id="Next">Call Next</button>
     <a href="Main.html" id="callPage" data-role="button">Other Services</a>
-</form>
+</section>
+
+<script>
+
+    $("#CallService").click(function (){
+       CallNumber();
+    });
+
+    $("#Next").click(function (){
+        Next();
+    });
+
+</script>
 </body>
 </html>

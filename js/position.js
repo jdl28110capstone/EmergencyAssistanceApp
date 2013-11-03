@@ -91,28 +91,30 @@ function Position(position, datetime, country, state, city, mobile)
         return positions;
     }
 
-}
-
-this.deletePosition = function(index)
-{
-    if (!_db)
+    this.deletePosition = function(index)
     {
-        console.log('The database is null. Unable to delete position');
-        navigator.notification.alert(
-            'Unable to delete position',
-            function(){},
-            'Error'
-        );
+        if (!_db)
+        {
+            console.log('The database is null. Unable to delete position');
+            navigator.notification.alert(
+                'Unable to delete position',
+                function(){},
+                'Error'
+            );
+        }
+
+        var positions = this.getPositions();
+        if (positions != null && positions[index] != undefined)
+            positions.splice(index, 1);
+
+        _db.setItem('positions', JSON.stringify(positions));
+
+        return positions;
     }
 
-    var positions = this.getPositions();
-    if (positions != null && positions[index] != undefined)
-        positions.splice(index, 1);
-
-    _db.setItem('positions', JSON.stringify(positions));
-
-    return positions;
 }
+
+
 
 function Coords(latitude, longitude, accuracy)
 {

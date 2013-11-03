@@ -5,9 +5,9 @@
 
 //function para inicial, necesaria para phonegap
 function init() {
-    document.addEventListener("deviceready", deviceReady, true);
-    $.mobile.allowCrossDomainPages = true;
-    delete init;
+
+
+    $("#form").on("submit",handleLogin);
 }
 
 //funcion para verificar si hay conexion de internet
@@ -59,9 +59,11 @@ function locationFail() {
 
 
 
-if ( Category == 'Hospital'){
 
-    $.mobile.changePage("#Map.html", {allowSamePageTransition:true,reloadPage:false,changeHash:true,transition:"slide"});
+if ( Category == 'Hospital'){
+    $.mobile.loading('show');
+    Map.displayMap(positions.getPositions());
+
 }
 
 else {
@@ -125,24 +127,12 @@ function handleLogin(){
 
 
 
-function deviceReady() {
-
-    $("#form").on("submit",handleLogin);
-
-}
-
-// si el usuario se encuentra en la pagina de Map se activa este evento
-$("#map-page").on(
-    'pageshow', function()
-    {
-        var position = new Position();
-        Map.displayMap(position.getPositions());
-    });
-
 //realiza la llamada de servidor
  function CallNumber(){
-    var numbers = new Position();
-     var telephone =  numbers.mobile[0];
+    var position = new Position();
+     var numbers =  position.getPositions();
+     var telephone = numbers[0].mobile;
+      alert("Entro a Call y voy a llamar a: " + telephone);
     if (navigator.userAgent.indexOf("Android") != -1) {
         document.location.href = 'tel:' + telephone;
     } else if (navigator.userAgent.indexOf("iPhone") != -1) {
@@ -154,6 +144,7 @@ $("#map-page").on(
 function Next(){
     var numbers = new Position();
     numbers.deletePosition(0);
+    alert("Entro a Next")
     CallNumber();
 }
 

@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87f28de7-9c49-40eb-bab8-df1a6b2f7e10" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Call.html" afterPath="$PROJECT_DIR$/Call.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Control.js" afterPath="$PROJECT_DIR$/js/Control.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LoginPage.html" afterPath="$PROJECT_DIR$/LoginPage.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Main.html" afterPath="$PROJECT_DIR$/Main.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Map.html" afterPath="$PROJECT_DIR$/Map.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OtherServices.html" afterPath="$PROJECT_DIR$/OtherServices.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/ProviderList.js" afterPath="$PROJECT_DIR$/js/ProviderList.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/register.html" afterPath="$PROJECT_DIR$/register.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
     </list>
     <ignored path="EmergencyAssistanceApp.iws" />
@@ -30,10 +33,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ProviderList.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ProviderList.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/ProviderList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="27" selection-start="313" selection-end="313" vertical-scroll-proportion="0.5368421" vertical-offset="0" max-vertical-offset="765">
+            <state line="76" column="0" selection-start="2292" selection-end="2292" vertical-scroll-proportion="0.0" vertical-offset="1053" max-vertical-offset="1479">
               <folding />
             </state>
           </provider>
@@ -42,34 +45,16 @@
       <file leaf-file-name="LoginPage.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LoginPage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="0" selection-start="1046" selection-end="1046" vertical-scroll-proportion="-13.923077" vertical-offset="148" max-vertical-offset="1309">
+            <state line="16" column="13" selection-start="663" selection-end="663" vertical-scroll-proportion="2.9230769" vertical-offset="348" max-vertical-offset="1496">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Main.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="907" selection-end="907" vertical-scroll-proportion="-3.9230769" vertical-offset="187" max-vertical-offset="1530">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Maps.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/Maps.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="156" column="0" selection-start="4760" selection-end="4760" vertical-scroll-proportion="0.0" vertical-offset="2430" max-vertical-offset="2839">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Position.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/Position.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="63" selection-start="1115" selection-end="1115" vertical-scroll-proportion="0.0" vertical-offset="176" max-vertical-offset="2159">
+            <state line="44" column="40" selection-start="1503" selection-end="1503" vertical-scroll-proportion="0.24168514" vertical-offset="639" max-vertical-offset="1428">
               <folding />
             </state>
           </provider>
@@ -78,7 +63,25 @@
       <file leaf-file-name="Control.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Control.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="0" selection-start="1539" selection-end="1539" vertical-scroll-proportion="0.0" vertical-offset="1125" max-vertical-offset="2822">
+            <state line="52" column="5" selection-start="1227" selection-end="1227" vertical-scroll-proportion="0.0" vertical-offset="783" max-vertical-offset="2669">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Position.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/Position.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="112" column="5" selection-start="2976" selection-end="2976" vertical-scroll-proportion="0.0" vertical-offset="882" max-vertical-offset="2193">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OtherServices.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/OtherServices.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="8" selection-start="912" selection-end="967" vertical-scroll-proportion="-0.65384614" vertical-offset="323" max-vertical-offset="833">
               <folding />
             </state>
           </provider>
@@ -87,7 +90,25 @@
       <file leaf-file-name="Map.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Map.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="6" selection-start="553" selection-end="553" vertical-scroll-proportion="-8.153846" vertical-offset="77" max-vertical-offset="493">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="731">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Maps.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/Maps.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="0" selection-start="447" selection-end="447" vertical-scroll-proportion="0.0" vertical-offset="377" max-vertical-offset="2856">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="60" column="0" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2380">
               <folding />
             </state>
           </provider>
@@ -111,21 +132,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/js/position.js" />
-        <option value="$PROJECT_DIR$/css/jquery.mobile-1.3.1.css" />
-        <option value="$PROJECT_DIR$/js/jquery.mobile-1.3.1.js" />
-        <option value="$PROJECT_DIR$/register.html" />
-        <option value="$PROJECT_DIR$/Call.html" />
-        <option value="$PROJECT_DIR$/OtherServices.html" />
         <option value="$PROJECT_DIR$/js/maps.js" />
         <option value="$PROJECT_DIR$/Main1.html" />
-        <option value="$PROJECT_DIR$/LoginPage.html" />
-        <option value="$PROJECT_DIR$/Map.html" />
-        <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/Main.html" />
+        <option value="$PROJECT_DIR$/config.xml" />
+        <option value="$PROJECT_DIR$/OtherServices.html" />
+        <option value="$PROJECT_DIR$/register.html" />
+        <option value="$PROJECT_DIR$/Call.html" />
+        <option value="code.jquery.com/jquery.js" />
         <option value="$PROJECT_DIR$/js/Position.js" />
+        <option value="maps.gstatic.com/intl/en_us/mapfiles/api-3/14/11/main.js" />
+        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/js/Maps.js" />
+        <option value="$PROJECT_DIR$/LoginPage.html" />
         <option value="$PROJECT_DIR$/js/Control.js" />
+        <option value="$PROJECT_DIR$/Main.html" />
+        <option value="$PROJECT_DIR$/Map.html" />
         <option value="$PROJECT_DIR$/js/ProviderList.js" />
       </list>
     </option>
@@ -233,7 +254,7 @@
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../EmergencyAssistanceApp3" />
-    <property name="restartRequiresConfirmation" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="options.searchVisible" value="true" />
@@ -241,6 +262,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Jdl28110\WebstormProjects\EmergencyAssistanceApp\images" />
       <recent name="C:\Users\Jdl28110\WebstormProjects\EmergencyAssistanceApp" />
       <recent name="C:\Users\Jdl28110\WebstormProjects\EmergencyAssistanceApp\css" />
       <recent name="C:\Users\Jdl28110\WebstormProjects\EmergencyAssistanceApp\js" />
@@ -299,8 +321,8 @@
     <recent_temporary>
       <list size="3">
         <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.Main.html" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.LoginPage.html" />
-        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.Map.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.Map.html" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.LoginPage.html" />
       </list>
     </recent_temporary>
   </component>
@@ -332,15 +354,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24869695" sideWeight="0.6812081" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31879196" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24869695" sideWeight="0.84395975" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15604027" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39932886" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32718122" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -350,7 +373,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -388,95 +410,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="60" selection-start="1824" selection-end="1824" vertical-scroll-proportion="10.807693" vertical-offset="1012" max-vertical-offset="1836">
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#label#0;n#div#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Readme.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="549">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OtherServices.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="452" selection-end="452" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="663">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Call.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="19" selection-start="252" selection-end="252" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="527">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Map.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="6" selection-start="553" selection-end="553" vertical-scroll-proportion="-8.153846" vertical-offset="77" max-vertical-offset="493">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2397">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LoginPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="1046" selection-end="1046" vertical-scroll-proportion="-13.923077" vertical-offset="148" max-vertical-offset="1309">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="http://maps.googleapis.com/maps/api/js/GeocodeService.Search?5m2&amp;1d43.43403134141288&amp;2d-80.46271967150932&amp;7sUS&amp;9sen-US&amp;callback=_xdc_._xvaq9q&amp;token=98138">
-      <provider selected="true" editor-type-id="httpFileEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="907" selection-end="907" vertical-scroll-proportion="-3.9230769" vertical-offset="187" max-vertical-offset="1530">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/Position.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="63" selection-start="1115" selection-end="1115" vertical-scroll-proportion="0.0" vertical-offset="887" max-vertical-offset="2159">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/Maps.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="0" selection-start="4760" selection-end="4760" vertical-scroll-proportion="0.0" vertical-offset="2430" max-vertical-offset="2839">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/Control.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="0" selection-start="1539" selection-end="1539" vertical-scroll-proportion="0.0" vertical-offset="1125" max-vertical-offset="2822">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="http://maps.googleapis.com/maps/api/js/AuthenticationService.Authenticate?1shttp%3A%2F%2Flocalhost%3A63342%2FEmergencyAssistanceApp%2FMain.html&amp;5e1&amp;callback=_xdc_._y3bwxz&amp;token=27011">
-      <provider selected="true" editor-type-id="httpFileEditor">
-        <state />
-      </provider>
-    </entry>
     <entry file="http://maps.googleapis.com/maps/api/js/QuotaService.RecordEvent?1shttp%3A%2F%2Flocalhost%3A63342%2FEmergencyAssistanceApp%2FMain.html&amp;4e1&amp;5e0&amp;6u1&amp;7sjnyc0m&amp;callback=_xdc_._9wpgd7&amp;token=128359">
       <provider selected="true" editor-type-id="httpFileEditor">
         <state />
@@ -487,9 +420,96 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="66" selection-start="375" selection-end="375" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="0" selection-start="568" selection-end="568" vertical-scroll-proportion="-13.076923" vertical-offset="0" max-vertical-offset="2023">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Call.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="1008" selection-end="1008" vertical-scroll-proportion="-14.384615" vertical-offset="153" max-vertical-offset="680">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="0" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2380">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="http://code.jquery.com/jquery.js">
+      <provider selected="true" editor-type-id="httpFileEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="http://maps.gstatic.com/intl/en_us/mapfiles/api-3/14/11/main.js">
+      <provider selected="true" editor-type-id="httpFileEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Position.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="112" column="5" selection-start="2976" selection-end="2976" vertical-scroll-proportion="0.0" vertical-offset="882" max-vertical-offset="2193">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LoginPage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="13" selection-start="663" selection-end="663" vertical-scroll-proportion="2.9230769" vertical-offset="348" max-vertical-offset="1496">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OtherServices.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="8" selection-start="912" selection-end="967" vertical-scroll-proportion="-0.65384614" vertical-offset="323" max-vertical-offset="833">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Control.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="5" selection-start="1227" selection-end="1227" vertical-scroll-proportion="0.0" vertical-offset="783" max-vertical-offset="2669">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Maps.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="447" selection-end="447" vertical-scroll-proportion="0.0" vertical-offset="377" max-vertical-offset="2856">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/ProviderList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="27" selection-start="313" selection-end="313" vertical-scroll-proportion="0.5368421" vertical-offset="0" max-vertical-offset="765">
+        <state line="76" column="0" selection-start="2292" selection-end="2292" vertical-scroll-proportion="0.0" vertical-offset="1053" max-vertical-offset="1479">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Map.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="731">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="40" selection-start="1503" selection-end="1503" vertical-scroll-proportion="0.24168514" vertical-offset="639" max-vertical-offset="1428">
           <folding />
         </state>
       </provider>

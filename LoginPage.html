@@ -9,16 +9,25 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+    <script>
+        $(document).bind("mobileinit", function(){
+            $.mobile.page.prototype.options.domCache = true ;
+            $.mobile.allowCrossDomainPages = true;
+        });
+    </script>
+    <script src="cordova.js"></script>
     <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <script type="text/javascript" charset="utf-8" src="js/Control.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/Maps.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/Position.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/ProviderList.js"></script>
-
+    <script>
+        $(document).one('deviceready', init);
+    </script>
 
 </head>
 
-<body onload="init()">
+
 
 <body style="background-color:black;">
 
@@ -59,6 +68,8 @@
     $("#LoginPage").on("pageinit", function(e) {
 
         checkPre();
+        $.mobile.changePage("Main" +
+                ".html");
 
     });
 

@@ -1,33 +1,43 @@
 <!DOCTYPE html>
 <html>
-<head></head>
-<title>Emergency Assistance App</title>
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="js/Control.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=320, user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" charset="utf-8" src="js/Control.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/Maps.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/Position.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/ProviderList.js"></script>
+
 </head>
+
 <body style="background-color:black;">
 
-<br>
-<form action="">
-    <input type="button" onClick="Chat()" value="Chat"><br>
-    <input type="button" onClick="callTServices()" id="towingServices" value="Call Towing Services"><br>
+<header>
+    <h1>Emergency Assistant App</h1>
+</header>
+
+<section id="OtherServices-page">
+    <button id="Chat">Chat</button>
+    <button id="TServices">Call Towing Services</button>
     <a href="Main.html" id="main" data-role="button">Back</a>
-</form>
+</section>
+
+
 <script>
-    function Chat()
-    {
-        //retrieves list of services with their usernames
-        window.navigate("chat.html");
-    }
+    $("#Chat").click(function (){
 
+    });
 
-    function callTServices()
-    {
-        var category = 'towingServices';
+    $("#TServices").click(function (){
+        var category = 'TServices';
         searchfor(category);
-    }
+    });
 
 </script>
 </body>
