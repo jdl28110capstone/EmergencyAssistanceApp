@@ -5,7 +5,52 @@
 
 //function para inicial, necesaria para phonegap
 function init() {
+    $(document).on('pagebeforecreate orientationchange', updateIcons);
 
+    $("#firefighters").click(function (){
+        var category = 'Firefighter';
+        searchfor(category);
+    });
+
+    $("#hospital").click(function (){
+        searchfor('Hospital');
+    });
+
+    $("#police").click(function (){
+        var category = 'Police';
+        searchfor(category);
+    });
+
+    $("#ambulance").click(function (){
+        var category = 'Ambulance';
+        searchfor(category);
+    });
+
+
+    $("#call911").click(function (){
+        if (navigator.userAgent.indexOf("Android") != -1) {
+            document.location.href = 'tel:911';
+        } else if (navigator.userAgent.indexOf("iPhone") != -1) {
+            window.location = 'telprompt://911';
+            navigator.notification.alert('Entra',
+                function(){},
+                'Info'
+            );
+        }
+
+    });
+
+    $("#other").click(function(){
+        $.mobile.changePage("OtherServices.html");
+    });
+
+
+
+    $('#map-page').live('pageshow', function (event) {
+        var positions= new Position();
+        Map.displayMap(positions.getPositions());
+
+    });
 
     $("#form").on("submit",handleLogin);
 }
@@ -26,8 +71,33 @@ function checkRequirements()
     return true;
 }
 
+function updateIcons()
+{
+    if ($(window).width() > 480)
+    {
+        $('a[data-icon], button[data-icon]').each(
+            function()
+            {
+                $(this).removeAttr('data-iconpos');
+            }
+        );
+    }
+    else
+    {
+        $('a[data-icon], button[data-icon]').each(
+            function()
+            {
+                $(this).attr('data-iconpos', 'notext');
+            }
+        );
+    }
+}
 
 //Recopila toda la informacion necesaria para Hospitales o llamadas
+// Latitud y Longitud por medio de Geolocation
+// Ciudad, Pais y estado utilizando Geocoder
+// Se encuentra la funcion displayMap para crear y desplegar las posiciones, y rutas
+// Se busca la lista de telefones y latitudes y longitudes ( en caso de Hospitales)
 function searchfor(Category){
 
 
@@ -62,8 +132,7 @@ function locationFail() {
 
 if ( Category == 'Hospital'){
     $.mobile.loading('show');
-    Map.displayMap(positions.getPositions());
-
+    $.mobile.changePage("Map.html");
 }
 
 else {
@@ -82,7 +151,7 @@ function checkPre() {
     }
 }
 
-//  Para verificar Login
+//  Para verificar Login, se concecta a servidor para verifar que los datos son correctos
 function handleLogin(){
     var form = $("#form");
 
@@ -127,20 +196,23 @@ function handleLogin(){
 
 
 
-//realiza la llamada de servidor
+//realiza la llamada de servidor, llama siempre al número de teléfono primero en la lista
+// Ya que Next la lista se actualiza
  function CallNumber(){
     var position = new Position();
      var numbers =  position.getPositions();
      var telephone = numbers[0].mobile;
-      alert("Entro a Call y voy a llamar a: " + telephone);
+
     if (navigator.userAgent.indexOf("Android") != -1) {
+        alert("Entro a Call y voy a llamar a: " + telephone);
         document.location.href = 'tel:' + telephone;
     } else if (navigator.userAgent.indexOf("iPhone") != -1) {
         window.location = 'telprompt://' + telephone;
     }
 }
 
-//funcion para realizar la llamada al otro servidor en la lista
+//funcion para realizar la llamada al otro servidor en la lista, actualiza la lista borrando el objeto tipo mobil
+// primero en la lista, cosa de que cuando se llame CallNumber, se utilice el proximo numero.
 function Next(){
     var numbers = new Position();
     numbers.deletePosition(0);

@@ -9,7 +9,8 @@
 
 
 /**
- * Display the map showing the user position or the latter and the car position
+ * Para desplegar el mapa, reciba posiciones y actualiza el mapa, también se llama la función que se encarga de colocar las rutas los
+ * mapas.
  */
 Map.displayMap = function(position)
 {
@@ -17,7 +18,7 @@ Map.displayMap = function(position)
     var userLatLng = null;
     var HospitalLatLng = [];
 
-    for(var i = 0; i < 6; i++){
+    for(var i = 1; i < 7; i++){
         if( i==1){
             userLatLng = new google.maps.LatLng(position[i].position.latitude, position[i].position.longitude);
         }
@@ -28,14 +29,18 @@ Map.displayMap = function(position)
         }
     }
 
+    alert("Dentro de MapDisplay: "+ position[i].mobile );
+
 
     var options = {
         zoom: 20,
         disableDefaultUI: true,
         streetViewControl: true,
-        center: userLatLng,
+        center: userLatLng, zoom:14,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
+
+
 
     var map = new google.maps.Map(document.getElementById('map'), options);
     var marker = new google.maps.Marker({
@@ -56,7 +61,7 @@ Map.displayMap = function(position)
 
     map.fitBounds(circle.getBounds());
 
-    for ( var e= 0; e <4; e++){
+    for ( var e= 2; e <7; e++){
         if (HospitalLatLng[e] != null){
          marker = new google.maps.Marker({
             position: HospitalLatLng[e],
@@ -87,19 +92,25 @@ Map.displayMap = function(position)
 
 
     $.mobile.loading('hide');
+
 }
 
 
-
-
-
+/**
+ * Se encarga de calcular las rutas utilizando la direccion, y las posiciones de los hospitales (Array) y la posicion del usuario
+ * La posicion es de tipo LatLng para ambos casos
+ * @param directionsDisplay
+ * @param userLatLng
+ * @param HospitalLatLng
+ */
 
     Map.setRoute = function(directionsDisplay, userLatLng, HospitalLatLng)
     {
         var directionsService = new google.maps.DirectionsService();
+        var request=[];
 
         for ( var i=0; i <4; i++){
-            var request = {
+             request[i] = {
                 origin: userLatLng,
                 destination: HospitalLatLng[i],
                 travelMode: google.maps.DirectionsTravelMode.WALKING,
@@ -107,7 +118,7 @@ Map.displayMap = function(position)
             };
 
          directionsService.route(
-                request,
+                request[i],
                 function(response, status)
                  {
                      if (status == google.maps.DirectionsStatus.OK)
@@ -127,10 +138,12 @@ Map.displayMap = function(position)
     }
 
 
-    //necesita arreglarse algoooooo lo de administrative_area_level_1 debería ser el equivalente para PR
+
 
     /**
-    * Request the address of the retrieved location
+    * Función para conseguir el país, ciudad y estado en que se encuentra la persona
+     * Esta información es necesaria para que en el servidor se localice los servicios que cubren el área donde se encuentra la persona
+     * o los hospitales cerca de la zona.
     */
     Map.requestLocation = function(position)
     {
