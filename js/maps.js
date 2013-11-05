@@ -29,14 +29,16 @@ Map.displayMap = function(position)
         }
     }
 
-    alert("Dentro de MapDisplay: "+ position[i].mobile );
+    alert("Numero de posiciones en el HospitalLatLng : "+ HospitalLatLng.length );
 
 
     var options = {
-        zoom: 20,
-        disableDefaultUI: true,
-        streetViewControl: true,
-        center: userLatLng, zoom:14,
+        center: userLatLng,
+        zoom:14,
+        mapTypeControl: true,
+        mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+        navigationControl: true,
+        navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }
 
@@ -51,7 +53,7 @@ Map.displayMap = function(position)
     });
      var circle  = new google.maps.Circle({
         center: userLatLng,
-        radius: position[4].position.accuracy,
+        radius: position[1].position.accuracy,
         map: map,
         fillColor: '#70E7FF',
         fillOpacity: 0.2,
@@ -61,12 +63,12 @@ Map.displayMap = function(position)
 
     map.fitBounds(circle.getBounds());
 
-    for ( var e= 2; e <7; e++){
+    for ( var e= 0; e <5; e++){
         if (HospitalLatLng[e] != null){
          marker = new google.maps.Marker({
             position: HospitalLatLng[e],
             map: map,
-            icon: 'images/hospital-building.png',  //buscar imagen parecida a Hospital o algo similar
+            icon: 'images/hospital-building.png',
             title: 'Hospital position'
          });
          circle = new google.maps.Circle({
@@ -88,8 +90,9 @@ Map.displayMap = function(position)
             map: map,
             preserveViewport: true
         }
-        this.setRoute(new google.maps.DirectionsRenderer(options), userLatLng, HospitalLatLng);
-
+    for ( var i=0; i <5; i++){
+        this.setRoute(new google.maps.DirectionsRenderer(options), userLatLng, HospitalLatLng[i]);
+    }
 
     $.mobile.loading('hide');
 
@@ -107,18 +110,18 @@ Map.displayMap = function(position)
     Map.setRoute = function(directionsDisplay, userLatLng, HospitalLatLng)
     {
         var directionsService = new google.maps.DirectionsService();
-        var request=[];
 
-        for ( var i=0; i <4; i++){
-             request[i] = {
+
+
+           var  request = {
                 origin: userLatLng,
-                destination: HospitalLatLng[i],
+                destination: HospitalLatLng,
                 travelMode: google.maps.DirectionsTravelMode.WALKING,
              unitSystem: google.maps.UnitSystem.METRIC
             };
 
          directionsService.route(
-                request[i],
+                request,
                 function(response, status)
                  {
                      if (status == google.maps.DirectionsStatus.OK)
@@ -127,14 +130,14 @@ Map.displayMap = function(position)
                       else
                       {
                          navigator.notification.alert(
-                             'Unable to retrieve a route to your car. However, you can still find it by your own.',
+                             'Unable to retrieve a route to the Hospital. However, you can still find it by your own.',
                              function(){},
                              'Warning'
                           );
                       }
                  }
          );
-        }
+
     }
 
 

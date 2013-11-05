@@ -29,13 +29,11 @@ function init() {
 
     $("#call911").click(function (){
         if (navigator.userAgent.indexOf("Android") != -1) {
+            alert("Entro al caller de Android y voy a llamar a: 911");
             document.location.href = 'tel:911';
         } else if (navigator.userAgent.indexOf("iPhone") != -1) {
             window.location = 'telprompt://911';
-            navigator.notification.alert('Entra',
-                function(){},
-                'Info'
-            );
+            alert("Entro al caller de Iphone y voy a llamar a: 911");
         }
 
     });
@@ -107,6 +105,7 @@ function searchfor(Category){
         enableHighAccuracy: true
     };
     var positions = new Position();
+    $.mobile.loading('show');
 
 navigator.geolocation.getCurrentPosition(
 function (location) {
@@ -120,6 +119,7 @@ function (location) {
             location.coords.accuracy
         ), "Country", "State", "City", window.localStorage["username"]
     );
+    alert("Lo que devuelve geolocation: Latitude: "+ latitude + "  Longitude: " + longitude);
     getlistofservices(Category, latitude, longitude, positions);
 },
 
@@ -131,7 +131,6 @@ function locationFail() {
 
 
 if ( Category == 'Hospital'){
-    $.mobile.loading('show');
     $.mobile.changePage("Map.html");
 }
 
@@ -145,9 +144,7 @@ else {
 function checkPre() {
     var form = $("#loginForm");
     if(window.localStorage["username"] != undefined && window.localStorage["password"] != undefined) {
-        $("#username", form).val(window.localStorage["username"]);
-        $("#password", form).val(window.localStorage["password"]);
-        handleLogin();
+        $.mobile.changePage('#Main.html');
     }
 }
 
@@ -204,9 +201,10 @@ function handleLogin(){
      var telephone = numbers[0].mobile;
 
     if (navigator.userAgent.indexOf("Android") != -1) {
-        alert("Entro a Call y voy a llamar a: " + telephone);
+        alert("Entro al caller de Android y voy a llamar a: " + telephone);
         document.location.href = 'tel:' + telephone;
     } else if (navigator.userAgent.indexOf("iPhone") != -1) {
+        alert("Entro al caller de iphone y voy a llamar a: " + telephone);
         window.location = 'telprompt://' + telephone;
     }
 }

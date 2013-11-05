@@ -71,35 +71,38 @@
     var dUsername = $("#username").val();
     var dPassword = $("#password").val();
     var dConfirmPassword= $("#Confirmpassword").val();
-    var dEmail = $("#email").val();
+    var name = $("#name").val();
     var pattern = /^\d{10}$/;
 
     if (pattern.test(mobile)) {
         if ( dPassword == dConfirmPassword) {
-            $.ajax({
-                type : "POST",
-                url : "http://localhost:3412/Register",
-                contentType : "application/json",
-                data: {username: dUsername, password: dPassword, name:name},
-                success : function(responseServer){
-                    if(responseServer.validacion == "ok"){
+            //$.ajax({
+            //    type : "POST",
+            //    url : "http://localhost:3412/Register",
+            //    contentType : "application/json",
+            //    data: {username: dUsername, password: dPassword, name:name},
+            //    success : function(responseServer){
+            //       if(responseServer.validacion == "ok"){
 
                         /// si la validacion es correcta, muestra la pantalla "LoginPage"
-                        $.mobile.changePage("#LoginPage.html");
+            //            $.mobile.changePage("#LoginPage.html");
 
-                    }
+           //         }
 
-                },
-                error: function(){
-                    navigator.notification.alert("Your registration failed", function() {});
-                }
-            });
-            $("#submitButton").removeAttr("disabled");
+            //    },
+           //     error: function(){
+           //         navigator.notification.alert("Your registration failed", function() {});
+           //     }
+           // });
+           // $("#submitButton").removeAttr("disabled");
+            alert("Se está envíando la información  " + dUsername + "  " + dPassword + "  " + name);
+            $.mobile.changePage("#LoginPage.html");
+
 
         }
 
         else {
-        navigator.notification.alert("Your passwords does not match with your confirm password", function() {});
+        alert("Your passwords does not match with your confirm password", function() {});
         }
 
     }
