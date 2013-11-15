@@ -2,7 +2,6 @@
  * Created by Jdl28110 on 10/16/13.
  */
 
-//falta esto
 
  function getlistofservices(Category, latitude, longitude, positions){
     var position= positions.getPositions();
@@ -15,68 +14,44 @@
     " Category: " + Category);
 
 
-    //$.ajax({
-    //    type: "POST",
-    //    url : "http://localhost:3412/Register",
-    //    contentType: "application/json",
-    //    data: {Category: Category, Latitude: latitude, Longitude:longitude, State: State, City:City, Country:Country},
-    //    success : function(list){
-    //        for(var i = 0; i < 5; i++){
-
-    //            positions.savePosition(
-    //                new Coords(
-    //                    list.latitude[i],
-    //                    list.longitude[i],
-    //                    positions.position.accuracy[i]
-    //                ), Country ,State ,City ,list.mobile[i])
-    //        }
-    //        return positions;
-
-    //    },
-    //    error: function(){
-    //        navigator.notification.alert("Your registration failed", function() {});
-    //    }
-   // });
-    positions.savePosition(
+    $.ajax({
+       type: "GET",
+       url : "http://eaa.ece.uprm.edu:3000/mobileEmergency?City=" + City,
+       contentType: "application/json;  charset=ISO-8859-15",
+       dataType: "json",
+       data: {category: "firefighter", latitude: latitude, longitude:longitude, state: "PR", city:City, country:"PR", clientPhoneNumber: "787-472-9078"},
+        success : function(data){
+                alert("Entro a success de ajax");
+                alert("Mobile:" + data[0].phoneNumber );
+           for(var i = 0; i < 1; i++){
+                if (Category == 'hospital'){
+                positions.savePosition(
+                   new Coords(
+                        data[i].latitude,
+                        data[i].longitude,
+                        positions.position[i].accuracy
+                    ), Country ,State ,City ,data[i].mobile);
+                }
+               else {
+                    //alert("Mobile:" + data[0].phoneNumber );
+                    positions.savePosition(
                     new Coords(
-                        18.209175722659893,
-                        -67.14326197357231,
-                        150
-                    ), Country ,State ,City ,'7873627431');
-
-    positions.savePosition(
-        new Coords(
-            18.20703611939031,
-            -67.13836962432964,
-            150
-        ), Country ,State ,City ,'7873627432');
+                        latitude,
+                        longitude,
+                        positions.position[i].accuracy
+                    ), Country ,State ,City ,data[i].mobile);
 
 
-    positions.savePosition(
-        new Coords(
-            18.20587426367439,
-            -67.13388497085691,
-            150
-        ), Country ,State ,City ,'7873627433');
+                }
+           }
+           return positions;
 
-    positions.savePosition(
-        new Coords(
-            18.199901795346566,
-            -67.13459307403677,
-            150
-        ), Country ,State ,City ,'7873627434');
+        },
+        error: function(){
+            navigator.notification.alert("MobileEmergency Failed", function() {});
+        }
+    });
 
-
-    positions.savePosition(
-        new Coords(
-            18.196823753920775,
-            -67.13899189682134,
-            150
-        ), Country ,State ,City ,'7873627435');
-
-
-
-
-
+    setInterval(function(){}, 5000);
 
 }

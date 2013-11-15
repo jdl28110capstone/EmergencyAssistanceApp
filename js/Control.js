@@ -8,21 +8,21 @@ function init() {
     $(document).on('pagebeforecreate orientationchange', updateIcons);
 
     $("#firefighters").click(function (){
-        var category = 'Firefighter';
+        var category = 'firefighter';
         searchfor(category);
     });
 
     $("#hospital").click(function (){
-        searchfor('Hospital');
+        searchfor('hospital');
     });
 
     $("#police").click(function (){
-        var category = 'Police';
+        var category = 'police';
         searchfor(category);
     });
 
     $("#ambulance").click(function (){
-        var category = 'Ambulance';
+        var category = 'ambulance';
         searchfor(category);
     });
 
